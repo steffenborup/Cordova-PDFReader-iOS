@@ -2,19 +2,19 @@
 <plugin
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.lesfrancschatons.cordova.plugins.pdfreader"
+    id="com.steffenborup.cordova.pdfreader"
     version="1.0.0">
 
     <name>PDFReader</name>
-	<description>Cordova PDF reader for IOS (based on Reader http://www.vfr.org/)</description>
+	<description>Cordova PDF reader for iOS (based on Reader http://www.vfr.org/)</description>
     <engines>
         <engine name="cordova" version=">=3.0.0" />
     </engines>
 	
 	<license>MIT</license>
     <keywords>reader,pdf,ios</keywords>
-    <repo>https://github.com/etabard/Cordova-PDFReader-IOS</repo>
-    <issue>https://github.com/etabard/Cordova-PDFReader-IOS/issues</issue>
+    <repo>https://github.com/steffenborup/Cordova-PDFReader-iOS</repo>
+    <issue>https://github.com/steffenborup/Cordova-PDFReader-iOS/issues</issue>
 
     <!-- ios -->
     <platform name="ios">
