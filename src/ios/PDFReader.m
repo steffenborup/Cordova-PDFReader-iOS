@@ -35,11 +35,13 @@
     NSString* toolbarBackgroundColor = [command.arguments objectAtIndex:10];
     NSString* textColor = [command.arguments objectAtIndex:11];
     BOOL enableShare = [[command.arguments objectAtIndex:12]  isEqual: [NSNumber numberWithInt:1]];
+    NSNumber *pageNumber = [command.arguments objectAtIndex:13];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     CDVPluginResult *pluginResult;
     
     ReaderDocument *document = [ReaderDocument withDocumentFilePath:filePath password:password];
+    [document setPageNumber:pageNumber];
     ReaderConstants *readerConstants = [ReaderConstants sharedReaderConstants];
     readerConstants.flatUI = flatUI;
     readerConstants.showShadows = showShadows;
