@@ -3,7 +3,17 @@ Cordova-PDFReader-iOS
 
 PDF Reader Cordova plugin for iOS 7+ (based on Reader https://github.com/vfr/Reader)
 
-This is a fork of https://github.com/etabard/Cordova-PDFReader-IOS
+Introduction
+------------
+
+The code is universal and does not require any XIBs (as all UI
+elements are code generated, allowing for greatest flexibility).
+It runs on iPad, iPhone and iPod touch with iOS 6.0 and up. Also
+supported are the Retina displays in all new devices and is ready
+to be fully internationalized. The idea was to provide a complete
+project template that you could start building from, or, just pull
+the required files into an existing project to enable PDF
+reading/viewing in your app(s).
 
 ![iPad Page](http://i.imgur.com/jaeCPz1.png)
 
