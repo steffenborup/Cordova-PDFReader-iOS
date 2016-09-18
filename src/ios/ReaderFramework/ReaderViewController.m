@@ -555,6 +555,26 @@
 	[super viewDidUnload];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    
+    if (currentPage > 0) {
+        
+        if (CGSizeEqualToSize(theScrollView.contentSize, CGSizeZero) == false)
+        {
+            if ([[ReaderConstants sharedReaderConstants] landscapeDoublePage]) {
+                [self handleLandscapeDoublePage];
+            } else {
+                [self updateContentViews:theScrollView];
+            }
+            lastAppearSize = CGSizeZero;
+        }
+        
+    }
+    
+}
+
+
 - (BOOL)prefersStatusBarHidden
 {
 	return YES;
