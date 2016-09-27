@@ -22,15 +22,6 @@
 }
 - (void)open: (CDVInvokedUrlCommand*)command
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didEnterBackground:)
-                                                 name:UIApplicationDidEnterBackgroundNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(willEnterForeground:)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:nil];
-    
     NSString* filePath = [command.arguments objectAtIndex:0];
     NSString* password = [command.arguments objectAtIndex:1];
     BOOL flatUI = [[command.arguments objectAtIndex:2]  isEqual: [NSNumber numberWithInt:1]];
@@ -92,17 +83,11 @@
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"filepath error"];
     }
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    
 }
 
 -(void) closePDFReader
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationDidEnterBackgroundNotification
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationWillEnterForegroundNotification
-                                                  object:nil];
-    
     if (self.callbackId) {
         CDVPluginResult* pluginResult = nil;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"closed"];
@@ -114,20 +99,14 @@
     self.readerViewController = nil;
 }
 
-- (void) didEnterBackground:(id)sender {
-    [self.viewController dismissViewControllerAnimated:NO completion:nil];
-}
-
-- (void) willEnterForeground:(id)sender {
-    [self.viewController presentViewController:readerViewController animated:NO completion:nil];
-}
-
 #pragma mark - ReaderViewControllerDelegate methods
 
 - (void)dismissReaderViewController:(ReaderViewController *)viewController
 {
     [self closePDFReader];
 }
+
+
 
 //#pragma mark Delegate methods
 
